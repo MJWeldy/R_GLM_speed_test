@@ -1,0 +1,6 @@
+tic()
+future::plan("multisession", gc = TRUE)
+index <- 1:nrow(cv_df)
+results <- furrr::future_map(index, cv_fun)
+future:::ClusterRegistry("stop")
+toc()
