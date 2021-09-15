@@ -1,3 +1,4 @@
+set.seed(1)
 library(data.table)
 library(dplyr)
 library(dismo)
