@@ -23,3 +23,18 @@ source("08_furrr_future_map.R")             # 90.06 sec elapsed
 source("09_parLapply.R")                    # 5.06 sec elapsed
 source("10_par_foreach.R")                  # 79.64 sec elapsed
 # source("11_mclapply.R") does not work for more than 1 core on windows
+
+# So parLapply is the clear winner... Testing to see if glmmTMB improves the speed
+source("12_parLapply_TMBB.R")               # 40.53 sec elapsed
+
+# Only bother looking at this if you have Julia programming language installed...
+# and you're interested
+library(JuliaCall)
+j <- julia_setup()
+j$library("MixedModels")
+# Rough code for fitting GLM in Julia language. The models fit
+# but I cannot figure out how to pull calculate auc for the metric
+# well the individual models fit in Julia and I extract the coeffs
+# but Julia locks its connections on the first par call so other calls will not
+# run. Linear it is, which will not end up faster. 
+#source("12_parLapply_julia.R")
