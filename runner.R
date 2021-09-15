@@ -22,7 +22,8 @@ source("07_purrr_map.R")                    # 450.05 sec elapsed
 source("08_furrr_future_map.R")             # 90.06 sec elapsed
 source("09_parLapply.R")                    # 5.06 sec elapsed
 source("10_par_foreach.R")                  # 79.64 sec elapsed
-# source("11_mclapply.R") does not work for more than 1 core on windows
+# Note does not work for more than 1 core on windows
+source("11_mclapply.R")                     # 72.857 sec elapsed
 
 # So parLapply is the clear winner... Testing to see if glmmTMB improves the speed
 source("12_parLapply_TMBB.R")               # 40.53 sec elapsed
